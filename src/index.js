@@ -185,12 +185,7 @@ class Snekfetch extends transport.Parent {
           statusText,
         };
 
-        if (res.ok) {
-          return res;
-        }
-        const err = new Error(`${statusCode} ${statusText}`.trim());
-        Object.assign(err, res);
-        return Promise.reject(err);
+        return res;
       })
       .then(resolver, rejector);
   }
